@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neha Kumari – Senior BI Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #0d0b09;
+    color: #f5f0e8;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO: full screen photo ── */
+  .hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: url('photo.jpg') center center / cover no-repeat;
+    filter: brightness(0.5);
+    animation: zoomBg 18s ease-in-out infinite alternate;
+  }
+  @keyframes zoomBg { from { transform: scale(1); } to { transform: scale(1.05); } }
+
+  /* gradient: dark at bottom so text is readable */
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(13,11,9,0.1) 0%,
+      rgba(13,11,9,0.3) 40%,
+      rgba(13,11,9,0.85) 80%,
+      rgba(13,11,9,1) 100%
+    );
+  }
+
+  .hero-text {
+    position: relative; z-index: 2;
+    padding: 0 72px 72px;
+    width: 100%;
+  }
+
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: #e8d5a3;
+    border: 1px solid rgba(201,168,76,0.4);
+    border-radius: 30px; padding: 5px 14px;
+    margin-bottom: 20px;
+    animation: up 0.8s 0.2s ease both;
+  }
+  .dot { width:6px; height:6px; border-radius:50%; background:#c9a84c; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 7vw, 90px);
+    font-weight: 300; line-height: 1.0;
+    margin-bottom: 14px;
+    animation: up 0.8s 0.3s ease both;
+  }
+  h1 em { font-style: italic; color: #c9a84c; }
+
+  .hero-role {
+    font-size: 15px; font-weight: 300;
+    color: rgba(245,240,232,0.65);
+    letter-spacing: 0.04em;
+    margin-bottom: 36px;
+    animation: up 0.8s 0.4s ease both;
+  }
+  .hero-role strong { color: #e8d5a3; font-weight: 400; }
+
+  .hero-pills {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    margin-bottom: 40px;
+    animation: up 0.8s 0.5s ease both;
+  }
+  .pill {
+    font-size: 12px; padding: 6px 16px;
+    border-radius: 30px;
+    border: 1px solid rgba(201,168,76,0.25);
+    color: rgba(245,240,232,0.7);
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(6px);
+  }
+
+  .hero-btns { display:flex; gap:12px; animation: up 0.8s 0.6s ease both; }
+  .btn { padding:12px 28px; border-radius:3px; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; transition:all 0.3s; font-family:'DM Sans',sans-serif; font-weight:500; }
+  .btn-gold { background:#c9a84c; color:#0d0b09; }
+  .btn-gold:hover { background:#e8d5a3; transform:translateY(-2px); }
+  .btn-ghost { background:transparent; color:#f5f0e8; border:1px solid rgba(245,240,232,0.3); }
+  .btn-ghost:hover { border-color:#c9a84c; color:#c9a84c; transform:translateY(-2px); }
+
+  @keyframes up { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+
+  /* ── SECTIONS ── */
+  .section { padding: 88px 72px; }
+  .section-alt { background: rgba(255,255,255,0.02); }
+
+  .label {
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: #c9a84c; margin-bottom: 10px;
+  }
+  .heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px,3.5vw,46px); font-weight: 300;
+    margin-bottom: 52px; line-height: 1.1;
+  }
+  .heading em { font-style:italic; color:#c9a84c; }
+
+  /* Experience */
+  .exp-list { display:flex; flex-direction:column; gap:40px; }
+  .exp-item {
+    display: grid; grid-template-columns: 180px 1fr;
+    gap: 0 40px; align-items: start;
+    opacity:0; transform:translateY(16px); transition:all 0.5s ease;
+  }
+  .exp-item.visible { opacity:1; transform:translateY(0); }
+  .exp-date { font-size:12px; color:#c9a84c; letter-spacing:0.06em; padding-top:4px; }
+  .exp-right {}
+  .exp-title { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:400; margin-bottom:3px; }
+  .exp-co { font-size:13px; color:rgba(245,240,232,0.5); margin-bottom:12px; }
+  .exp-tags { display:flex; flex-wrap:wrap; gap:7px; }
+  .exp-tag { font-size:11px; padding:3px 11px; border-radius:20px; border:1px solid rgba(201,168,76,0.25); color:#e8d5a3; background:rgba(201,168,76,0.06); }
+
+  /* Projects */
+  .proj-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px; }
+  .proj {
+    padding:26px; border:1px solid rgba(201,168,76,0.2); border-radius:6px;
+    background:rgba(255,255,255,0.03);
+    transition:all 0.3s; opacity:0; transform:translateY(16px);
+  }
+  .proj.visible { opacity:1; transform:translateY(0); }
+  .proj:hover { border-color:#c9a84c; transform:translateY(-4px); }
+  .proj-icon { font-size:24px; margin-bottom:12px; }
+  .proj-name { font-family:'Cormorant Garamond',serif; font-size:18px; margin-bottom:8px; }
+  .proj-desc { font-size:13px; color:rgba(245,240,232,0.55); line-height:1.7; margin-bottom:14px; }
+  .proj-chips { display:flex; flex-wrap:wrap; gap:6px; }
+  .chip { font-size:11px; padding:3px 9px; border-radius:20px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:rgba(245,240,232,0.45); }
+
+  /* Skills */
+  .skills-row { display:flex; flex-wrap:wrap; gap:10px; }
+  .skill { font-size:13px; padding:8px 18px; border-radius:30px; border:1px solid rgba(201,168,76,0.25); color:rgba(245,240,232,0.7); background:rgba(255,255,255,0.03); }
+
+  /* Contact */
+  .contact-center { text-align:center; padding:88px 40px; }
+  .contact-email {
+    font-family:'Cormorant Garamond',serif; font-size:clamp(18px,2.5vw,28px);
+    font-weight:300; color:#e8d5a3; text-decoration:none;
+    border-bottom:1px solid rgba(201,168,76,0.3); padding-bottom:3px;
+    display:inline-block; margin:18px 0 32px;
+    transition:color 0.3s;
+  }
+  .contact-email:hover { color:#c9a84c; }
+  .contact-row { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
+  .footer { margin-top:44px; font-size:12px; color:rgba(245,240,232,0.25); letter-spacing:0.07em; }
+
+  @media(max-width:700px){
+    .hero-text { padding: 0 28px 56px; }
+    .section { padding: 60px 28px; }
+    .exp-item { grid-template-columns:1fr; gap:6px; }
+    .exp-date { font-size:11px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-text">
+    <div class="hero-tag"><span class="dot"></span> Open to Work · PAN India</div>
+    <h1>Neha <em>Kumari</em></h1>
+    <p class="hero-role">Senior BI Analyst &nbsp;·&nbsp; <strong>JLL, Gurugram</strong></p>
+    <div class="hero-pills">
+      <span class="pill">Tableau</span>
+      <span class="pill">Power BI</span>
+      <span class="pill">SQL</span>
+      <span class="pill">AWS Redshift</span>
+      <span class="pill">Python</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#contact" class="btn btn-gold">Get in Touch</a>
+      <a href="#experience" class="btn btn-ghost">My Journey</a>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+  <div class="label">Journey</div>
+  <h2 class="heading">Work <em>Experience</em></h2>
+  <div class="exp-list">
+
+    <div class="exp-item">
+      <div class="exp-date">Jan 2024 – Present</div>
+      <div class="exp-right">
+        <div class="exp-title">Senior Analyst – Business Intelligence</div>
+        <div class="exp-co">Jones Lang LaSalle (JLL) · Gurugram</div>
+        <div class="exp-tags"><span class="exp-tag">Tableau</span><span class="exp-tag">EMEA Dashboards</span><span class="exp-tag">Geospatial Maps</span><span class="exp-tag">KPI Tracking</span></div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">Aug 2021 – Dec 2023</div>
+      <div class="exp-right">
+        <div class="exp-title">System Software Engineer</div>
+        <div class="exp-co">Tata Consultancy Services · Noida</div>
+        <div class="exp-tags"><span class="exp-tag">AWS Redshift</span><span class="exp-tag">SQL</span><span class="exp-tag">Tableau</span><span class="exp-tag">Amazon S3</span></div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">Mar 2021 – Aug 2021</div>
+      <div class="exp-right">
+        <div class="exp-title">Programmer Analyst Trainee</div>
+        <div class="exp-co">Cognizant · Pune</div>
+        <div class="exp-tags"><span class="exp-tag">Python</span><span class="exp-tag">HTML</span><span class="exp-tag">CSS</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section section-alt" id="projects">
+  <div class="label">Work</div>
+  <h2 class="heading">Key <em>Projects</em></h2>
+  <div class="proj-grid">
+    <div class="proj"><div class="proj-icon">🏭</div><div class="proj-name">Trinity Log Industrial</div><div class="proj-desc">Dashboards tracking industrial assets and performance metrics across regions.</div><div class="proj-chips"><span class="chip">Tableau</span><span class="chip">SQL</span></div></div>
+    <div class="proj"><div class="proj-icon">⚡</div><div class="proj-name">EPC Sustainability</div><div class="proj-desc">Emissions tracking and asset compliance ratings for EMEA portfolio.</div><div class="proj-chips"><span class="chip">Tableau</span><span class="chip">Geospatial</span></div></div>
+    <div class="proj"><div class="proj-icon">☁️</div><div class="proj-name">AWS Redshift Migration</div><div class="proj-desc">On-premises to cloud migration enabling scalable analytics pipelines.</div><div class="proj-chips"><span class="chip">Redshift</span><span class="chip">S3</span><span class="chip">SQL</span></div></div>
+    <div class="proj"><div class="proj-icon">📊</div><div class="proj-name">Sales & Real Estate</div><div class="proj-desc">Custom dashboards with advanced parameters and mapping from scratch.</div><div class="proj-chips"><span class="chip">Tableau</span><span class="chip">Power BI</span></div></div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="label">Expertise</div>
+  <h2 class="heading">Skills &amp; <em>Tools</em></h2>
+  <div class="skills-row">
+    <span class="skill">Tableau</span>
+    <span class="skill">Power BI</span>
+    <span class="skill">SQL</span>
+    <span class="skill">Python</span>
+    <span class="skill">AWS Redshift</span>
+    <span class="skill">Amazon S3</span>
+    <span class="skill">DBeaver</span>
+    <span class="skill">Jira · Agile</span>
+    <span class="skill">GitHub</span>
+    <span class="skill">HTML · CSS · JS</span>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-center" id="contact">
+  <div class="label">Let's Talk</div>
+  <h2 class="heading" style="margin-bottom:0">Open to <em>opportunities</em></h2>
+  <a href="mailto:nk.banasthali1204@gmail.com" class="contact-email">nk.banasthali1204@gmail.com</a>
+  <div class="contact-row">
+    <a href="tel:8750206515" class="btn btn-ghost">📱 8750206515</a>
+    <a href="https://github.com/Nehak1212" class="btn btn-ghost">GitHub</a>
+  </div>
+  <p class="footer">Senior BI Analyst · JLL Gurugram · Open PAN India</p>
+</section>
+
+<script>
+  const obs = new IntersectionObserver(e => e.forEach(el => {
+    if (el.isIntersecting) el.target.classList.add('visible');
+  }), { threshold: 0.1 });
+  document.querySelectorAll('.exp-item, .proj').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
