@@ -131,6 +131,46 @@
   .tc-tag.a{background:#fffbf0;color:#92400e;border-color:#f5d68a;}
   .tc-tag.n{background:#f4f3ef;color:#444;border-color:#e0ddd8;}
 
+  /* === ANIMATIONS === */
+  @keyframes pulse-ring {
+    0%   { box-shadow: 0 0 0 0 rgba(22,163,74,0.55); }
+    70%  { box-shadow: 0 0 0 7px rgba(22,163,74,0); }
+    100% { box-shadow: 0 0 0 0 rgba(22,163,74,0); }
+  }
+  .td.cur { animation: pulse-ring 1.8s ease-out infinite; }
+  .tl-current-highlight {
+    border-left: 3px solid #16a34a;
+    border-radius: 0 7px 7px 0;
+    background: linear-gradient(90deg,#f0faf4 0%,#fff 100%);
+    padding-left: 10px;
+    margin-left: -10px;
+    position: relative;
+  }
+  .tl-current-highlight::before {
+    content: 'Current';
+    position: absolute;
+    top: 0; right: 0;
+    font-size: 9px;
+    font-weight: 600;
+    color: #166534;
+    background: #dcfce7;
+    border: 1px solid #a7d7bb;
+    border-radius: 0 7px 0 6px;
+    padding: 2px 7px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  .skf { transition: width 1.1s cubic-bezier(.4,0,.2,1); }
+  .fade-up {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   @media(max-width:900px){
     .mid{grid-template-columns:1fr;}
     .krow{grid-template-columns:repeat(2,1fr);}
@@ -173,7 +213,7 @@
 <main class="body">
 
   <!-- Bio -->
-  <div class="bio">
+  <div class="bio fade-up">
     <div class="bio-av">NK</div>
     <div style="flex:1;">
       <div class="bio-n">Neha Kumari</div>
@@ -188,7 +228,7 @@
   </div>
 
   <!-- KPI Row -->
-  <div class="krow">
+  <div class="krow fade-up">
     <div class="kc">
       <i class="ti ti-briefcase ki"></i>
       <div class="kl">Total experience</div>
@@ -216,7 +256,7 @@
   </div>
 
   <!-- Mid row -->
-  <div class="mid">
+  <div class="mid fade-up">
 
     <!-- Timeline -->
     <div class="pan">
@@ -225,6 +265,7 @@
       <div class="ti">
         <div class="tll"><div class="td cur"></div><div class="tln"></div></div>
         <div class="tc">
+          <div class="tl-current-highlight">
           <div class="tco">Jones Lang LaSalle (JLL)</div>
           <div class="tro">Senior Analyst – Business Intelligence</div>
           <div class="tpe">Jan 2024 – Present &nbsp;·&nbsp; Gurugram</div>
@@ -236,6 +277,7 @@
             <span class="tbg a">EMEA stakeholders</span>
             <span class="tbg">TAT tool</span>
             <span class="tbg">Trend analysis</span>
+          </div>
           </div>
         </div>
       </div>
@@ -347,7 +389,7 @@
   </div>
 
   <!-- Bottom row -->
-  <div class="btm">
+  <div class="btm fade-up">
     <div class="pan">
       <div class="pt">Key projects <span>5 featured</span></div>
       <div class="pr-item">
@@ -430,9 +472,25 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
   window.addEventListener('load', function(){
-    document.querySelectorAll('.skf').forEach(function(el){
-      el.style.width = el.dataset.w + '%';
-    });
+
+    /* --- Scroll fade-in observer --- */
+    var fadeEls = document.querySelectorAll('.fade-up');
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(e, i){
+        if(e.isIntersecting){
+          setTimeout(function(){ e.target.classList.add('visible'); }, i * 80);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    fadeEls.forEach(function(el){ observer.observe(el); });
+
+    /* --- Skill bars animate after short delay --- */
+    setTimeout(function(){
+      document.querySelectorAll('.skf').forEach(function(el){
+        el.style.width = el.dataset.w + '%';
+      });
+    }, 300);
 
     new Chart(document.getElementById('donut1'), {
       type: 'doughnut',
