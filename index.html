@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Neha Kumari · Senior BI Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css"/>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'DM Sans',sans-serif;background:#dcdad4;color:#1a1a1a;min-height:100vh;padding-bottom:48px;}
+
+  /* Header */
+  .hdr{background:#fff;border-bottom:1.5px solid #e8e4de;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:56px;position:sticky;top:0;z-index:10;}
+  .hdr-l{display:flex;align-items:center;gap:14px;}
+  .av{width:38px;height:38px;border-radius:50%;background:#2563eb;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700;flex-shrink:0;}
+  .hn{font-size:15px;font-weight:600;color:#1a1a1a;}
+  .hr{font-size:11px;color:#6b6b6b;}
+  .tabs{display:flex;}
+  .tab{font-size:12px;padding:0 18px;height:56px;display:flex;align-items:center;color:#6b6b6b;border-bottom:2px solid transparent;cursor:pointer;transition:all .15s;}
+  .tab.on{color:#2563eb;border-bottom-color:#2563eb;font-weight:500;}
+  .tab:hover{color:#2563eb;}
+  .badge{background:#e8f3e8;color:#166534;font-size:11px;font-weight:500;padding:4px 12px;border-radius:20px;display:flex;align-items:center;gap:5px;}
+
+  /* Toolbar */
+  .tb{background:#e8e6e0;border-bottom:1px solid #d0cdc6;padding:0 28px;display:flex;align-items:center;gap:16px;height:42px;}
+  .tbl{font-size:11px;color:#9a9a9a;font-weight:500;text-transform:uppercase;letter-spacing:.05em;}
+  .pill{background:#f0eff0;border:1px solid #dddad4;border-radius:20px;font-size:12px;padding:4px 12px;color:#444;display:flex;align-items:center;gap:5px;}
+  .dot{width:7px;height:7px;border-radius:50%;background:#2563eb;display:inline-block;}
+  .dot.g{background:#16a34a;}
+  .dvdr{width:1px;height:18px;background:#e0ddd8;}
+
+  /* Body */
+  .body{padding:20px 28px;display:flex;flex-direction:column;gap:14px;max-width:1200px;margin:0 auto;}
+
+  /* Bio */
+  .bio{background:#fff;border:1px solid #e8e4de;border-radius:8px;padding:16px 20px;display:flex;align-items:center;gap:18px;}
+  .bio-av{width:54px;height:54px;border-radius:50%;background:#2563eb;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;font-weight:700;flex-shrink:0;}
+  .bio-n{font-size:17px;font-weight:700;color:#1a1a1a;}
+  .bio-t{font-size:12px;color:#2563eb;font-weight:500;margin-top:2px;}
+  .bio-d{font-size:12px;color:#6b6b6b;margin-top:5px;line-height:1.55;max-width:560px;}
+  .bio-lks{display:flex;gap:8px;margin-left:auto;flex-shrink:0;}
+  .lk{background:#f4f3ef;border:1px solid #e0ddd8;border-radius:6px;padding:7px 14px;font-size:12px;font-weight:500;color:#444;display:flex;align-items:center;gap:6px;cursor:pointer;text-decoration:none;transition:background .12s;}
+  .lk:hover{background:#eae7e1;}
+  .lk.p{background:#2563eb;color:#fff;border-color:#2563eb;}
+  .lk.p:hover{background:#1d4ed8;}
+
+  /* KPI row */
+  .krow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  .kc{background:#fff;border:1px solid #e8e4de;border-radius:8px;padding:14px 16px;position:relative;overflow:hidden;}
+  .kc::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:#2563eb;}
+  .kc.tl::before{background:#16a34a;}
+  .kc.am::before{background:#d97706;}
+  .kc.pu::before{background:#7c3aed;}
+  .kl{font-size:10px;color:#8a8a8a;font-weight:500;text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px;}
+  .kv{font-size:22px;font-weight:700;color:#1a1a1a;line-height:1;}
+  .ks{font-size:11px;color:#8a8a8a;margin-top:4px;}
+  .ki{position:absolute;top:13px;right:13px;font-size:18px;color:#d0cdc8;}
+
+  /* 3-col mid */
+  .mid{display:grid;grid-template-columns:1fr 1fr 300px;gap:14px;align-items:start;}
+
+  /* Panel */
+  .pan{background:#fff;border:1px solid #e8e4de;border-radius:8px;padding:16px 18px;}
+  .pt{font-size:11px;font-weight:600;color:#333;text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;}
+  .pt span{color:#8a8a8a;font-weight:400;text-transform:none;letter-spacing:0;font-size:11px;}
+
+  /* Timeline */
+  .ti{display:flex;gap:12px;}
+  .tll{display:flex;flex-direction:column;align-items:center;width:12px;flex-shrink:0;}
+  .td{width:10px;height:10px;border-radius:50%;background:#2563eb;border:2px solid #fff;box-shadow:0 0 0 1.5px #2563eb;margin-top:3px;flex-shrink:0;}
+  .td.cur{background:#16a34a;box-shadow:0 0 0 1.5px #16a34a;}
+  .tln{flex:1;width:1.5px;background:#e0ddd8;margin:3px 0;}
+  .tc{padding-bottom:16px;flex:1;}
+  .tco{font-size:13px;font-weight:600;color:#1a1a1a;}
+  .tro{font-size:12px;color:#2563eb;font-weight:500;}
+  .tpe{font-size:11px;color:#9a9a9a;margin-top:1px;}
+  .tbs{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px;}
+  .tbg{font-size:10px;padding:2px 7px;border-radius:12px;background:#eff4ff;color:#1d4ed8;border:1px solid #c7d7f5;font-weight:500;}
+  .tbg.g{background:#f0faf4;color:#166534;border-color:#a7d7bb;}
+  .tbg.a{background:#fffbf0;color:#92400e;border-color:#f5d68a;}
+
+  /* Skills */
+  .sk-wrap{display:flex;flex-direction:column;gap:9px;}
+  .skr{display:flex;align-items:center;gap:8px;}
+  .skn{font-size:12px;color:#333;width:74px;flex-shrink:0;font-weight:500;}
+  .skbg{flex:1;height:7px;background:#f0ede8;border-radius:4px;overflow:hidden;}
+  .skf{height:100%;border-radius:4px;width:0%;transition:width .9s ease;}
+  .skp{font-size:11px;color:#8a8a8a;width:28px;text-align:right;}
+
+  .sep{height:1px;background:#f0ede8;margin:12px 0;}
+
+  /* Awards */
+  .aw-item{display:flex;align-items:flex-start;gap:9px;border:1px solid #e8e4de;border-radius:7px;padding:9px 11px;margin-bottom:8px;}
+  .aw-item:last-child{margin-bottom:0;}
+  .aw-ic{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;}
+  .aw-ic.bl{background:#eff4ff;color:#2563eb;}
+  .aw-ic.gl{background:#f0faf4;color:#16a34a;}
+  .aw-ic.am{background:#fffbf0;color:#d97706;}
+  .aw-n{font-size:12px;font-weight:600;color:#1a1a1a;}
+  .aw-d{font-size:11px;color:#7a7a7a;margin-top:1px;line-height:1.4;}
+
+  /* Edu */
+  .edu-item{border:1px solid #e8e4de;border-radius:7px;padding:10px 13px;margin-bottom:8px;}
+  .edu-item:last-child{margin-bottom:0;}
+  .edu-n{font-size:12px;font-weight:600;color:#1a1a1a;}
+  .edu-d{font-size:11px;color:#7a7a7a;margin-top:2px;}
+  .edu-p{font-size:11px;color:#2563eb;font-weight:500;margin-top:2px;}
+
+  /* Bottom 2-col */
+  .btm{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+
+  /* Projects */
+  .pr-item{border:1px solid #e8e4de;border-radius:7px;padding:10px 13px;display:flex;gap:10px;align-items:flex-start;margin-bottom:9px;}
+  .pr-item:last-child{margin-bottom:0;}
+  .pr-ic{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+  .pr-ic.bl{background:#eff4ff;color:#2563eb;}
+  .pr-ic.gl{background:#f0faf4;color:#16a34a;}
+  .pr-ic.am{background:#fffbf0;color:#d97706;}
+  .pr-ic.pu{background:#f5f0ff;color:#7c3aed;}
+  .pr-n{font-size:12px;font-weight:600;color:#1a1a1a;}
+  .pr-d{font-size:11px;color:#7a7a7a;margin-top:2px;line-height:1.4;}
+  .pr-tags{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px;}
+  .pr-tag{font-size:10px;padding:2px 7px;border-radius:10px;background:#f4f3ef;color:#555;border:1px solid #e0ddd8;}
+
+  /* Tag cloud */
+  .tag-cloud{display:flex;flex-wrap:wrap;gap:6px;}
+  .tc-tag{font-size:11px;padding:3px 9px;border-radius:12px;background:#eff4ff;color:#1d4ed8;border:1px solid #c7d7f5;font-weight:500;}
+  .tc-tag.g{background:#f0faf4;color:#166534;border-color:#a7d7bb;}
+  .tc-tag.a{background:#fffbf0;color:#92400e;border-color:#f5d68a;}
+  .tc-tag.n{background:#f4f3ef;color:#444;border-color:#e0ddd8;}
+
+  @media(max-width:900px){
+    .mid{grid-template-columns:1fr;}
+    .krow{grid-template-columns:repeat(2,1fr);}
+    .btm{grid-template-columns:1fr;}
+    .bio{flex-direction:column;align-items:flex-start;}
+    .bio-lks{margin-left:0;}
+    .hdr{flex-wrap:wrap;height:auto;padding:10px 16px;gap:8px;}
+    .tabs{display:none;}
+    .body{padding:12px 14px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-l">
+    <div class="av">NK</div>
+    <div>
+      <div class="hn">Neha Kumari</div>
+      <div class="hr">Senior BI Analyst · Portfolio Dashboard</div>
+    </div>
+  </div>
+  <nav class="tabs">
+    <div class="tab on">Overview</div>
+    <div class="tab">Skills</div>
+    <div class="tab">Projects</div>
+    <div class="tab">Awards</div>
+  </nav>
+  <div class="badge"><i class="ti ti-map-pin" style="font-size:12px;"></i> Open to Work · PAN India</div>
+</header>
+
+<div class="tb">
+  <span class="tbl">Filters</span>
+  <div class="pill"><span class="dot"></span>BI &amp; Analytics</div>
+  <div class="pill"><span class="dot g"></span>Currently Active · JLL</div>
+  <div class="dvdr"></div>
+  <span style="font-size:12px;color:#8a8a8a;">Experience: ~4.5 Years &nbsp;·&nbsp; nk.banasthali1204@gmail.com &nbsp;·&nbsp; 8750206515</span>
+</div>
+
+<main class="body">
+
+  <!-- Bio -->
+  <div class="bio">
+    <div class="bio-av">NK</div>
+    <div style="flex:1;">
+      <div class="bio-n">Neha Kumari</div>
+      <div class="bio-t">Senior Analyst – Business Intelligence &nbsp;·&nbsp; JLL (Jones Lang LaSalle), Gurugram</div>
+      <div class="bio-d">Diligent BI professional with strong expertise in Tableau and Power BI. Experienced in developing dashboards, data migration pipelines, and visual analytics for strategic decision-making across real estate, cloud, and enterprise domains. Committed to continuous learning in the fast-paced IT field.</div>
+    </div>
+    <div class="bio-lks">
+      <a class="lk p" href="mailto:nk.banasthali1204@gmail.com"><i class="ti ti-mail" style="font-size:14px;"></i> Email</a>
+      <a class="lk" href="tel:8750206515"><i class="ti ti-phone" style="font-size:14px;"></i> Call</a>
+      <a class="lk" href="#"><i class="ti ti-brand-github" style="font-size:14px;"></i> GitHub</a>
+    </div>
+  </div>
+
+  <!-- KPI Row -->
+  <div class="krow">
+    <div class="kc">
+      <i class="ti ti-briefcase ki"></i>
+      <div class="kl">Total experience</div>
+      <div class="kv">4.5 yrs</div>
+      <div class="ks">Cognizant · TCS · JLL</div>
+    </div>
+    <div class="kc tl">
+      <i class="ti ti-chart-bar ki"></i>
+      <div class="kl">Primary BI tools</div>
+      <div class="kv">Tableau + PBI</div>
+      <div class="ks">Dashboards, KPIs, Geo maps</div>
+    </div>
+    <div class="kc am">
+      <i class="ti ti-cloud ki"></i>
+      <div class="kl">Cloud platform</div>
+      <div class="kv">AWS</div>
+      <div class="ks">S3 · Redshift · Migration</div>
+    </div>
+    <div class="kc pu">
+      <i class="ti ti-trophy ki"></i>
+      <div class="kl">Awards</div>
+      <div class="kv">3</div>
+      <div class="ks">On the Spot · Band A · CoA</div>
+    </div>
+  </div>
+
+  <!-- Mid row -->
+  <div class="mid">
+
+    <!-- Timeline -->
+    <div class="pan">
+      <div class="pt">Work experience <span>Timeline</span></div>
+
+      <div class="ti">
+        <div class="tll"><div class="td cur"></div><div class="tln"></div></div>
+        <div class="tc">
+          <div class="tco">Jones Lang LaSalle (JLL)</div>
+          <div class="tro">Senior Analyst – Business Intelligence</div>
+          <div class="tpe">Jan 2024 – Present &nbsp;·&nbsp; Gurugram</div>
+          <div class="tbs">
+            <span class="tbg g">Tableau</span>
+            <span class="tbg">Heat maps</span>
+            <span class="tbg">Geospatial maps</span>
+            <span class="tbg">KPI dashboards</span>
+            <span class="tbg a">EMEA stakeholders</span>
+            <span class="tbg">TAT tool</span>
+            <span class="tbg">Trend analysis</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ti">
+        <div class="tll"><div class="td"></div><div class="tln"></div></div>
+        <div class="tc">
+          <div class="tco">Tata Consultancy Services (TCS)</div>
+          <div class="tro">System Software Engineer</div>
+          <div class="tpe">Aug 2021 – Dec 2023 &nbsp;·&nbsp; Noida</div>
+          <div class="tbs">
+            <span class="tbg">AWS Redshift</span>
+            <span class="tbg">Amazon S3</span>
+            <span class="tbg">SQL</span>
+            <span class="tbg g">Tableau</span>
+            <span class="tbg a">DBeaver</span>
+            <span class="tbg">CMT Tool</span>
+            <span class="tbg">Data migration</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ti">
+        <div class="tll"><div class="td"></div></div>
+        <div class="tc" style="padding-bottom:0;">
+          <div class="tco">Cognizant</div>
+          <div class="tro">Programmer Analyst Trainee</div>
+          <div class="tpe">Mar 2021 – Aug 2021 &nbsp;·&nbsp; Pune</div>
+          <div class="tbs">
+            <span class="tbg">HTML</span>
+            <span class="tbg">CSS</span>
+            <span class="tbg">Python</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills panel -->
+    <div class="pan">
+      <div class="pt">Skills proficiency <span>Self-assessed</span></div>
+      <div class="sk-wrap" id="skBars">
+        <div class="skr"><div class="skn">Tableau</div><div class="skbg"><div class="skf" style="background:#2563eb;" data-w="95"></div></div><div class="skp">95%</div></div>
+        <div class="skr"><div class="skn">Power BI</div><div class="skbg"><div class="skf" style="background:#f59e0b;" data-w="85"></div></div><div class="skp">85%</div></div>
+        <div class="skr"><div class="skn">SQL</div><div class="skbg"><div class="skf" style="background:#16a34a;" data-w="82"></div></div><div class="skp">82%</div></div>
+        <div class="skr"><div class="skn">HTML/CSS</div><div class="skbg"><div class="skf" style="background:#0891b2;" data-w="72"></div></div><div class="skp">72%</div></div>
+        <div class="skr"><div class="skn">DBeaver</div><div class="skbg"><div class="skf" style="background:#854d0e;" data-w="78"></div></div><div class="skp">78%</div></div>
+        <div class="skr"><div class="skn">Jira/Scrum</div><div class="skbg"><div class="skf" style="background:#0369a1;" data-w="75"></div></div><div class="skp">75%</div></div>
+        <div class="skr"><div class="skn">Python</div><div class="skbg"><div class="skf" style="background:#7c3aed;" data-w="65"></div></div><div class="skp">65%</div></div>
+        <div class="skr"><div class="skn">AWS</div><div class="skbg"><div class="skf" style="background:#f97316;" data-w="55"></div></div><div class="skp">55%</div></div>
+      </div>
+
+      <div class="sep"></div>
+      <div class="pt" style="margin-bottom:8px;">Tool category split <span>Donut chart</span></div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:10px;font-size:11px;color:#6b6b6b;">
+        <span style="display:flex;align-items:center;gap:4px;"><span style="width:9px;height:9px;border-radius:2px;background:#2563eb;display:inline-block;"></span>Visualisation 40%</span>
+        <span style="display:flex;align-items:center;gap:4px;"><span style="width:9px;height:9px;border-radius:2px;background:#16a34a;display:inline-block;"></span>SQL / DB 25%</span>
+        <span style="display:flex;align-items:center;gap:4px;"><span style="width:9px;height:9px;border-radius:2px;background:#f59e0b;display:inline-block;"></span>Cloud / AWS 15%</span>
+        <span style="display:flex;align-items:center;gap:4px;"><span style="width:9px;height:9px;border-radius:2px;background:#7c3aed;display:inline-block;"></span>Dev / Other 20%</span>
+      </div>
+      <div style="position:relative;width:100%;height:160px;">
+        <canvas id="donut1" role="img" aria-label="Donut chart: Visualisation 40%, SQL/DB 25%, Cloud 15%, Dev/Other 20%">Visualisation 40%, SQL/DB 25%, Cloud 15%, Dev/Other 20%</canvas>
+      </div>
+    </div>
+
+    <!-- Right col -->
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div class="pan">
+        <div class="pt">Tenure by company <span>Years</span></div>
+        <div style="position:relative;width:100%;height:130px;">
+          <canvas id="barTenure" role="img" aria-label="Bar chart: Cognizant 0.5yr, TCS 2.3yr, JLL 1.5yr">Cognizant 0.5yr, TCS 2.3yr, JLL 1.5yr (current)</canvas>
+        </div>
+      </div>
+
+      <div class="pan">
+        <div class="pt">Education</div>
+        <div class="edu-item">
+          <div class="edu-n">B.Tech – Electronics &amp; Instrumentation</div>
+          <div class="edu-d">Banasthali Vidyapith, Jaipur &nbsp;·&nbsp; 2016–2020</div>
+          <div class="edu-p">71.8%</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-n">Intermediate</div>
+          <div class="edu-d">B.G.S. International School, Delhi &nbsp;·&nbsp; 2014–2016</div>
+          <div class="edu-p">75.6%</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-n">High School</div>
+          <div class="edu-d">Happy Child Model School, Delhi &nbsp;·&nbsp; 2014</div>
+          <div class="edu-p">90%</div>
+        </div>
+      </div>
+
+      <div class="pan">
+        <div class="pt">Awards &amp; achievements</div>
+        <div class="aw-item">
+          <div class="aw-ic bl"><i class="ti ti-bolt" style="font-size:14px;"></i></div>
+          <div><div class="aw-n">On the Spot Award</div><div class="aw-d">Complex delivery within tight deadlines</div></div>
+        </div>
+        <div class="aw-item">
+          <div class="aw-ic gl"><i class="ti ti-star" style="font-size:14px;"></i></div>
+          <div><div class="aw-n">Performance Band 'A'</div><div class="aw-d">Top performance band rating</div></div>
+        </div>
+        <div class="aw-item">
+          <div class="aw-ic am"><i class="ti ti-certificate" style="font-size:14px;"></i></div>
+          <div><div class="aw-n">Certificate of Appreciation</div><div class="aw-d">Successful delivery of Sales Hub Report enhancements</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom row -->
+  <div class="btm">
+    <div class="pan">
+      <div class="pt">Key projects <span>5 featured</span></div>
+      <div class="pr-item">
+        <div class="pr-ic bl"><i class="ti ti-building-factory-2" style="font-size:14px;"></i></div>
+        <div>
+          <div class="pr-n">Trinity Log Industrial Projects · JLL</div>
+          <div class="pr-d">Interactive Tableau dashboards tracking industrial assets and performance metrics for EMEA stakeholders.</div>
+          <div class="pr-tags"><span class="pr-tag">Tableau</span><span class="pr-tag">KPIs</span><span class="pr-tag">EMEA</span><span class="pr-tag">Asset tracking</span></div>
+        </div>
+      </div>
+      <div class="pr-item">
+        <div class="pr-ic gl"><i class="ti ti-leaf" style="font-size:14px;"></i></div>
+        <div>
+          <div class="pr-n">Energy Performance Certificate (EPC) · JLL</div>
+          <div class="pr-d">Dashboards tracking standard vs target emissions and asset ratings for sustainability &amp; compliance insights.</div>
+          <div class="pr-tags"><span class="pr-tag">Tableau</span><span class="pr-tag">Sustainability</span><span class="pr-tag">Emissions</span><span class="pr-tag">Compliance</span></div>
+        </div>
+      </div>
+      <div class="pr-item">
+        <div class="pr-ic am"><i class="ti ti-cloud-upload" style="font-size:14px;"></i></div>
+        <div>
+          <div class="pr-n">AWS Redshift Data Migration · TCS</div>
+          <div class="pr-d">Led on-premises to AWS Redshift migration; automated pipelines to Amazon S3 and optimised SQL for cloud analytics.</div>
+          <div class="pr-tags"><span class="pr-tag">AWS</span><span class="pr-tag">Redshift</span><span class="pr-tag">S3</span><span class="pr-tag">SQL</span><span class="pr-tag">DBeaver</span></div>
+        </div>
+      </div>
+      <div class="pr-item">
+        <div class="pr-ic bl"><i class="ti ti-chart-dots" style="font-size:14px;"></i></div>
+        <div>
+          <div class="pr-n">Tableau KPI Dashboards · TCS</div>
+          <div class="pr-d">Created Tableau reports with calculated fields, hierarchies, sets and automated extract refreshes for performance insights.</div>
+          <div class="pr-tags"><span class="pr-tag">Tableau</span><span class="pr-tag">KPIs</span><span class="pr-tag">Calculated fields</span><span class="pr-tag">Automation</span></div>
+        </div>
+      </div>
+      <div class="pr-item">
+        <div class="pr-ic pu"><i class="ti ti-layout-dashboard" style="font-size:14px;"></i></div>
+        <div>
+          <div class="pr-n">Custom Sales &amp; Real Estate Dashboards · JLL</div>
+          <div class="pr-d">Delivered dashboards from scratch with parameters, mapping features, geospatial layers and comparative trend analysis.</div>
+          <div class="pr-tags"><span class="pr-tag">Tableau</span><span class="pr-tag">Geo maps</span><span class="pr-tag">Parameters</span><span class="pr-tag">Sales data</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pan">
+      <div class="pt">Skills by proficiency <span>Horizontal bar</span></div>
+      <div style="position:relative;width:100%;height:230px;">
+        <canvas id="barSkills" role="img" aria-label="Horizontal bar chart: Tableau 95%, Power BI 85%, SQL 82%, DBeaver 78%, Jira 75%, HTML/CSS 72%, Python 65%, AWS 55%">Tableau 95, Power BI 85, SQL 82, DBeaver 78, Jira 75, HTML/CSS 72, Python 65, AWS 55</canvas>
+      </div>
+
+      <div class="sep"></div>
+      <div class="pt" style="margin-bottom:10px;">All tools &amp; technologies</div>
+      <div class="tag-cloud">
+        <span class="tc-tag g">Tableau</span>
+        <span class="tc-tag g">Power BI</span>
+        <span class="tc-tag">SQL</span>
+        <span class="tc-tag">Python</span>
+        <span class="tc-tag a">AWS</span>
+        <span class="tc-tag a">Amazon S3</span>
+        <span class="tc-tag a">AWS Redshift</span>
+        <span class="tc-tag">DBeaver</span>
+        <span class="tc-tag">Aginity</span>
+        <span class="tc-tag">GitHub</span>
+        <span class="tc-tag">CMT Tool</span>
+        <span class="tc-tag">TAT Tool</span>
+        <span class="tc-tag">HTML</span>
+        <span class="tc-tag">CSS</span>
+        <span class="tc-tag">JavaScript</span>
+        <span class="tc-tag n">Agile</span>
+        <span class="tc-tag n">Scrum</span>
+        <span class="tc-tag n">Jira</span>
+        <span class="tc-tag n">Dashboard Dev</span>
+        <span class="tc-tag n">Data Visualisation</span>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  window.addEventListener('load', function(){
+    document.querySelectorAll('.skf').forEach(function(el){
+      el.style.width = el.dataset.w + '%';
+    });
+
+    new Chart(document.getElementById('donut1'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Visualisation','SQL / DB','Cloud / AWS','Dev / Other'],
+        datasets: [{
+          data: [40, 25, 15, 20],
+          backgroundColor: ['#2563eb','#16a34a','#f59e0b','#7c3aed'],
+          borderWidth: 2,
+          borderColor: '#fff'
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '68%',
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { label: function(c){ return ' ' + c.label + ': ' + c.raw + '%'; } } }
+        }
+      }
+    });
+
+    new Chart(document.getElementById('barTenure'), {
+      type: 'bar',
+      data: {
+        labels: ['Cognizant','TCS','JLL'],
+        datasets: [{
+          data: [0.5, 2.3, 1.5],
+          backgroundColor: ['#9ca3af','#2563eb','#16a34a'],
+          borderRadius: 4,
+          borderWidth: 0
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { color: '#f0ede8' }, ticks: { font: { size: 10 }, color: '#8a8a8a', callback: function(v){ return v + 'yr'; } }, border: { display: false } },
+          y: { grid: { display: false }, ticks: { font: { size: 11 }, color: '#444' }, border: { display: false } }
+        }
+      }
+    });
+
+    new Chart(document.getElementById('barSkills'), {
+      type: 'bar',
+      data: {
+        labels: ['Tableau','Power BI','SQL','DBeaver','Jira','HTML/CSS','Python','AWS'],
+        datasets: [{
+          data: [95, 85, 82, 78, 75, 72, 65, 55],
+          backgroundColor: ['#2563eb','#f59e0b','#16a34a','#854d0e','#0369a1','#0891b2','#7c3aed','#f97316'],
+          borderRadius: 4,
+          borderWidth: 0
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { min: 0, max: 100, grid: { color: '#f0ede8' }, ticks: { font: { size: 10 }, color: '#8a8a8a', callback: function(v){ return v + '%'; } }, border: { display: false } },
+          y: { grid: { display: false }, ticks: { font: { size: 11 }, color: '#444' }, border: { display: false } }
+        }
+      }
+    });
+  });
+</script>
+</body>
+</html>
